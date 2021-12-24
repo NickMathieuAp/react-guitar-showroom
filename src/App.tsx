@@ -1,25 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
+import React from "react";
 import './App.css';
+import Navbar from "./components/Navbar";
+import { HashRouter as Router, Route, Routes } from 'react-router-dom'
+import Acous from './pages/acous';
+import Bass from './pages/bass';
+import Elec from './pages/elec';
+import Home from './pages/home';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Navbar/>
+      <Routes>
+        <Route path="/home" element={<Home/>} />
+        <Route path="/acous" element={<Acous/>} />
+        <Route path="/bass" element={<Bass/>} />
+        <Route path="/elec" element={<Elec/>} />
+      </Routes>
+    </Router>
   );
 }
 
